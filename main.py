@@ -32,8 +32,9 @@ dishes = list(get_cook_book().keys())
 
 def get_shop_list_by_dishes(dishes, person_count):
     shop_list = {}
-    for dish in get_cook_book().values():
-        for ingredient in dish:
+    for dish in dishes:
+        ingredients = get_cook_book()[dish]
+        for ingredient in ingredients:
             key = ingredient['ingredient_name']
             measure = ingredient['measure']
             quantity = int(ingredient['quantity']) * person_count
